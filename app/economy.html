@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Economy — Nippon Data Atlas</title>
+<meta name="description" content="Japan's GDP, growth, sectors, trade and labour market. Every figure sourced.">
+<link rel="stylesheet" href="style.css">
+<script src="data.js" defer></script>
+<script src="charts.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Nippon <em>Data Atlas</em></a>
+    <span class="tagline">Japan in numbers — every figure sourced</span>
+    <nav class="main-nav" aria-label="Sections">
+      <a href="index.html">Overview</a>
+      <a href="population.html">Population</a>
+      <a href="economy.html" aria-current="page">Economy</a>
+      <a href="health.html">Health &amp; Education</a>
+      <a href="regions.html">Regions</a>
+      <a href="data.html">Data &amp; Sources</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="kicker">Economy</p>
+    <h1>The world's fourth-largest economy</h1>
+    <p class="lede">Japan produced $4.19 trillion of goods and services in 2024. Growth was
+    nearly flat in real terms (+0.1%), and the dollar value fell because the yen
+    weakened — in yen, nominal GDP rose for a fourth straight year.</p>
+  </section>
+
+  <section class="panel">
+    <div class="controls" role="group" aria-label="GDP chart view">
+      <button type="button" data-gdp-mode="nominal" class="active" aria-pressed="true">Nominal GDP (US$)</button>
+      <button type="button" data-gdp-mode="growth" aria-pressed="false">Real growth (%)</button>
+      <label for="gdp-year">Year</label>
+      <select id="gdp-year">
+        <option value="2015">2015</option>
+        <option value="2016">2016</option>
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024" selected>2024</option>
+      </select>
+    </div>
+    <div class="stats">
+      <div class="stat accent">
+        <div class="value" id="gdp-year-value">$4,190bn</div>
+        <div class="label">Nominal GDP, selected year</div>
+        <div class="source">World Bank WDI, current US$</div>
+      </div>
+      <div class="stat">
+        <div class="value" id="gdp-year-growth">+0.1%</div>
+        <div class="label">Real GDP growth, selected year</div>
+        <div class="source">IMF World Economic Outlook</div>
+      </div>
+      <div class="stat">
+        <div class="value" id="gdp-year-capita">$33,797</div>
+        <div class="label">GDP per capita, selected year</div>
+        <div class="source">Nominal GDP ÷ population, World Bank WDI</div>
+      </div>
+    </div>
+    <div class="chart" id="gdp-chart"></div>
+    <p class="fine" id="gdp-hint">Nominal GDP at current prices, converted to US dollars at the year's average exchange rate, World Bank WDI.</p>
+    <div class="note"><p><strong>Why the dollar figure fell:</strong> Japan's nominal GDP in yen
+    rose from ¥637 trillion in 2024, but the yen averaged about 151 to the dollar,
+    so the dollar figure dropped to $4.19 trillion from $4.38 trillion in 2023.
+    The size of the economy did not shrink — the exchange rate moved.</p></div>
+  </section>
+
+  <div class="two-col">
+    <section class="panel">
+      <h2>What the economy makes</h2>
+      <p>Services produce 70.3% of gross value added, industry 28.7% and agriculture
+      1.0% (2024). Jobs follow a similar split: 73.8% in services, 23.3% in industry,
+      2.9% in agriculture.</p>
+      <div class="chart" id="sector-donut"></div>
+      <p class="fine">Gross value added by sector, 2024. Source: UNSD via Destatis.</p>
+      <div class="chart" id="sector-jobs"></div>
+      <p class="fine">Employment by sector, 2024. Source: ILOSTAT via Destatis.</p>
+    </section>
+    <section class="panel">
+      <h2>Trade: what Japan sells and buys</h2>
+      <p>Japan exported $718 billion of goods and imported $752 billion in 2024 — a
+      goods deficit of $34 billion. Vehicles and parts are the biggest export
+      (21.7% of goods exports), ahead of machinery (19.1%) and electronics (18.5%).</p>
+      <h3>Largest export markets</h3>
+      <div class="chart" id="export-markets"></div>
+      <h3>Largest import suppliers</h3>
+      <div class="chart" id="import-suppliers"></div>
+      <p class="fine">Shares of goods trade, 2024. Source: WITS / World Bank.</p>
+    </section>
+  </div>
+
+  <section class="panel">
+    <h2>Work</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Measure</th><th class="num">Value</th><th class="num">Year</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>Unemployment rate</td><td class="num">2.5%</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr><td>Labour force</td><td class="num">69.3 million</td><td class="num">2024</td><td>ILO / World Bank WDI</td></tr>
+          <tr><td>Labour force participation (ages 15+)</td><td class="num">63.2%</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr><td>Female labour participation (ages 15+)</td><td class="num">55.6%</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr><td>Male labour participation (ages 15+)</td><td class="num">71.5%</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr><td>Inflation (consumer prices)</td><td class="num">2.7%</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr><td>Research and development spending</td><td class="num">3.4% of GDP</td><td class="num">2022</td><td>World Bank WDI</td></tr>
+          <tr><td>Researchers</td><td class="num">5,630 per million people</td><td class="num">2022</td><td>World Bank WDI</td></tr>
+          <tr><td>Gini index (income inequality)</td><td class="num">32.3</td><td class="num">2020</td><td>World Bank WDI</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Nippon Data Atlas is an independent atlas, not affiliated with the Statistics
+    Bureau of Japan or any government body. <span id="site-year">2026</span> · <a href="data.html">Data &amp; Sources</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Population — Nippon Data Atlas</title>
+<meta name="description" content="Japan's population by year, age structure, births and deaths, and the 47 prefectures. Every figure sourced.">
+<link rel="stylesheet" href="style.css">
+<script src="data.js" defer></script>
+<script src="charts.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Nippon <em>Data Atlas</em></a>
+    <span class="tagline">Japan in numbers — every figure sourced</span>
+    <nav class="main-nav" aria-label="Sections">
+      <a href="index.html">Overview</a>
+      <a href="population.html" aria-current="page">Population</a>
+      <a href="economy.html">Economy</a>
+      <a href="health.html">Health &amp; Education</a>
+      <a href="regions.html">Regions</a>
+      <a href="data.html">Data &amp; Sources</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="kicker">Population</p>
+    <h1>124.0 million people, and falling</h1>
+    <p class="lede">Japan's population has shrunk every year since 2010. Pick a year to see
+    the figure, the change on the year before, and GDP per person for that year.</p>
+  </section>
+
+  <section class="panel">
+    <div class="controls">
+      <label for="pop-year">Year</label>
+      <select id="pop-year">
+        <option value="2015">2015</option>
+        <option value="2016">2016</option>
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024" selected>2024</option>
+      </select>
+    </div>
+    <div class="stats">
+      <div class="stat accent">
+        <div class="value" id="pop-year-value">124.0 million</div>
+        <div class="label">Population</div>
+        <div class="source" id="pop-year-change">−0.4 million on 2023 (−0.32%)</div>
+      </div>
+      <div class="stat">
+        <div class="value" id="pop-year-capita">$33,797</div>
+        <div class="label">GDP per capita that year</div>
+        <div class="source">Nominal GDP ÷ population, World Bank WDI</div>
+      </div>
+      <div class="stat">
+        <div class="value">342 <small>per km²</small></div>
+        <div class="label">Population density, 2024</div>
+        <div class="source">World Bank WDI · land area 364,569 km² (2023)</div>
+      </div>
+    </div>
+    <div class="chart" id="pop-chart"></div>
+    <p class="fine">Total population, millions. Source: World Bank, World Development Indicators (SP.POP.TOTL).</p>
+  </section>
+
+  <section class="panel">
+    <h2>The age mix, then and now</h2>
+    <p>Choose a year. In 2000, children outnumbered older people; by 2024 the
+    balance had flipped — 29.8% of the population is 65 or older, and only 11.4%
+    is under 15.</p>
+    <div class="controls" role="group" aria-label="Year for age structure">
+      <button type="button" data-age-year="2000">2000</button>
+      <button type="button" data-age-year="2010">2010</button>
+      <button type="button" data-age-year="2020">2020</button>
+      <button type="button" data-age-year="2024" class="active">2024</button>
+    </div>
+    <div class="chart" id="age-chart"></div>
+    <p class="fine" id="age-note"></p>
+    <div class="legend">
+      <span><span class="swatch" style="background:#5b7a5e"></span>Aged 0–14</span>
+      <span><span class="swatch" style="background:#1f3a5f"></span>Aged 15–64</span>
+      <span><span class="swatch" style="background:#b3261e"></span>Aged 65+</span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Births and deaths</h2>
+    <p>In 2023 Japan recorded <strong>727,277 births</strong> and
+    <strong>1,590,503 deaths</strong> — a natural decrease of 863,226 people, the
+    largest on record. The crude birth rate in 2024 was 5.7 per 1,000 people and
+    the crude death rate 13.3 per 1,000.</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Measure</th><th class="num">Value</th><th class="num">Year</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>Births</td><td class="num">727,277</td><td class="num">2023</td><td>MHLW Vital Statistics</td></tr>
+          <tr><td>Deaths</td><td class="num">1,590,503</td><td class="num">2023</td><td>MHLW Vital Statistics</td></tr>
+          <tr><td>Natural change (births minus deaths)</td><td class="num">−863,226</td><td class="num">2023</td><td>Computed from MHLW figures</td></tr>
+          <tr><td>Crude birth rate</td><td class="num">5.7 per 1,000</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr><td>Crude death rate</td><td class="num">13.3 per 1,000</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr><td>Fertility rate</td><td class="num">1.2 births per woman</td><td class="num">2023</td><td>World Bank WDI</td></tr>
+          <tr><td>Urban population</td><td class="num">92.2%</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>The ten largest prefectures</h2>
+    <p>Tokyo alone holds more people than 40 of the 47 prefectures combined.
+    The full ranking of all 47, with search and sorting, is on the
+    <a href="regions.html">Regions</a> page.</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>#</th><th>Prefecture</th><th>Region</th><th class="num">Population, 2024</th><th class="num">Share of Japan</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Tokyo</td><td>Kanto</td><td class="num">14.18 million</td><td class="num">11.5%</td></tr>
+          <tr><td>2</td><td>Kanagawa</td><td>Kanto</td><td class="num">9.23 million</td><td class="num">7.4%</td></tr>
+          <tr><td>3</td><td>Osaka</td><td>Kansai</td><td class="num">8.76 million</td><td class="num">7.1%</td></tr>
+          <tr><td>4</td><td>Aichi</td><td>Chubu</td><td class="num">7.46 million</td><td class="num">6.0%</td></tr>
+          <tr><td>5</td><td>Saitama</td><td>Kanto</td><td class="num">7.33 million</td><td class="num">5.9%</td></tr>
+          <tr><td>6</td><td>Chiba</td><td>Kanto</td><td class="num">6.25 million</td><td class="num">5.0%</td></tr>
+          <tr><td>7</td><td>Hyogo</td><td>Kansai</td><td class="num">5.34 million</td><td class="num">4.3%</td></tr>
+          <tr><td>8</td><td>Fukuoka</td><td>Kyushu</td><td class="num">5.09 million</td><td class="num">4.1%</td></tr>
+          <tr><td>9</td><td>Hokkaido</td><td>Hokkaido</td><td class="num">5.04 million</td><td class="num">4.1%</td></tr>
+          <tr><td>10</td><td>Shizuoka</td><td>Chubu</td><td class="num">3.53 million</td><td class="num">2.8%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fine">1 October 2024. Source: Statistics Bureau of Japan, Population Estimates.</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Nippon Data Atlas is an independent atlas, not affiliated with the Statistics
+    Bureau of Japan or any government body. <span id="site-year">2026</span> · <a href="data.html">Data &amp; Sources</a></p>
+  </div>
+</footer>
+</body>
+</html>

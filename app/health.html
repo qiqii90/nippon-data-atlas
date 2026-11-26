@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Health &amp; Education — Nippon Data Atlas</title>
+<meta name="description" content="Japan's life expectancy, mortality, doctors, hospitals, schooling and enrolment. Every figure sourced.">
+<link rel="stylesheet" href="style.css">
+<script src="data.js" defer></script>
+<script src="charts.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Nippon <em>Data Atlas</em></a>
+    <span class="tagline">Japan in numbers — every figure sourced</span>
+    <nav class="main-nav" aria-label="Sections">
+      <a href="index.html">Overview</a>
+      <a href="population.html">Population</a>
+      <a href="economy.html">Economy</a>
+      <a href="health.html" aria-current="page">Health &amp; Education</a>
+      <a href="regions.html">Regions</a>
+      <a href="data.html">Data &amp; Sources</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="kicker">Health &amp; Education</p>
+    <h1>Long lives, long schooling</h1>
+    <p class="lede">Japan has one of the world's highest life expectancies — 84.0 years — and
+    children can expect 15.5 years of schooling. Use the tabs to switch between
+    health and education.</p>
+  </section>
+
+  <div class="controls" role="group" aria-label="Choose topic">
+    <button type="button" data-tab="health" class="active" aria-pressed="true">Health</button>
+    <button type="button" data-tab="education" aria-pressed="false">Education</button>
+  </div>
+
+  <section class="panel" data-panel="health">
+    <h2>Health</h2>
+    <div class="stats">
+      <div class="stat accent">
+        <div class="value">84.0 <small>years</small></div>
+        <div class="label">Life expectancy at birth</div>
+        <div class="source">World Bank WDI, 2024</div>
+      </div>
+      <div class="stat">
+        <div class="value">1.8 <small>per 1,000</small></div>
+        <div class="label">Infant mortality</div>
+        <div class="source">World Bank WDI, 2024</div>
+      </div>
+      <div class="stat">
+        <div class="value">2.65 <small>per 1,000</small></div>
+        <div class="label">Practising physicians</div>
+        <div class="source">World Bank WDI, 2022</div>
+      </div>
+    </div>
+    <h3>Life expectancy, women and men</h3>
+    <div class="chart" id="life-chart"></div>
+    <p class="fine">Years at birth. Women 87.1 and men 81.1 are 2023 figures; the all-persons
+    figure of 84.0 is 2024. Source: World Bank WDI.</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Measure</th><th class="num">Value</th><th class="num">Year</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>Life expectancy at birth, all</td><td class="num">84.0 years</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr><td>Life expectancy, women</td><td class="num">87.1 years</td><td class="num">2023</td><td>World Bank WDI</td></tr>
+          <tr><td>Life expectancy, men</td><td class="num">81.1 years</td><td class="num">2023</td><td>World Bank WDI</td></tr>
+          <tr><td>Infant mortality</td><td class="num">1.8 per 1,000 live births</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr><td>Under-5 mortality</td><td class="num">2.4 per 1,000 live births</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr><td>Maternal mortality</td><td class="num">3 per 100,000 live births</td><td class="num">2023</td><td>World Bank WDI</td></tr>
+          <tr><td>Hospital beds</td><td class="num">12.6 per 1,000 people</td><td class="num">2022</td><td>OECD</td></tr>
+          <tr><td>Practising physicians</td><td class="num">2.65 per 1,000 people</td><td class="num">2022</td><td>World Bank WDI</td></tr>
+          <tr><td>Doctor consultations</td><td class="num">12.1 per person per year</td><td class="num">2023</td><td>OECD Health at a Glance</td></tr>
+          <tr><td>Health spending</td><td class="num">10.7% of GDP</td><td class="num">2023</td><td>World Bank WDI</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><p><strong>Reading the beds figure:</strong> 12.6 hospital beds per 1,000
+    people is the highest among OECD countries — Japan keeps patients in hospital
+    longer than most, so beds per person is high even though doctors per person
+    (2.65) is below the OECD average.</p></div>
+  </section>
+
+  <section class="panel" data-panel="education" hidden>
+    <h2>Education</h2>
+    <div class="stats">
+      <div class="stat accent">
+        <div class="value">12.7 <small>years</small></div>
+        <div class="label">Mean years of schooling</div>
+        <div class="source">UNDP, 2023</div>
+      </div>
+      <div class="stat">
+        <div class="value">64.9<small>%</small></div>
+        <div class="label">Tertiary enrolment, gross</div>
+        <div class="source">World Bank WDI, 2023</div>
+      </div>
+      <div class="stat">
+        <div class="value">3.3<small>% of GDP</small></div>
+        <div class="label">Government education spending</div>
+        <div class="source">World Bank WDI, 2021</div>
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Measure</th><th class="num">Value</th><th class="num">Year</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>Mean years of schooling (adults 25+)</td><td class="num">12.7 years</td><td class="num">2023</td><td>UNDP</td></tr>
+          <tr><td>Expected years of schooling (children)</td><td class="num">15.5 years</td><td class="num">2023</td><td>UNDP</td></tr>
+          <tr><td>Primary enrolment, gross</td><td class="num">102.5%</td><td class="num">2023</td><td>World Bank WDI</td></tr>
+          <tr><td>Secondary enrolment, gross</td><td class="num">102.3%</td><td class="num">2023</td><td>World Bank WDI</td></tr>
+          <tr><td>Tertiary enrolment, gross</td><td class="num">64.9%</td><td class="num">2023</td><td>World Bank WDI</td></tr>
+          <tr><td>Government spending on education</td><td class="num">3.3% of GDP</td><td class="num">2021</td><td>World Bank WDI</td></tr>
+          <tr><td>Pupil–teacher ratio, primary</td><td class="num">15.7 pupils per teacher</td><td class="num">2017</td><td>World Bank WDI</td></tr>
+          <tr><td>Human Development Index</td><td class="num">0.925</td><td class="num">2023</td><td>UNDP</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><p><strong>Why enrolment is over 100%:</strong> gross enrolment counts
+    every pupil enrolled, including those older or younger than the official age
+    for that level, so it can pass 100% even when every child of the right age
+    is in school. Primary completion in Japan is effectively 100%.</p></div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Nippon Data Atlas is an independent atlas, not affiliated with the Statistics
+    Bureau of Japan or any government body. <span id="site-year">2026</span> · <a href="data.html">Data &amp; Sources</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nippon Data Atlas — Japan in numbers</title>
+<meta name="description" content="Japan's population, economy, health, education and regions in one place. Every figure carries its source and year.">
+<link rel="stylesheet" href="style.css">
+<script src="data.js" defer></script>
+<script src="charts.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Nippon <em>Data Atlas</em></a>
+    <span class="tagline">Japan in numbers — every figure sourced</span>
+    <nav class="main-nav" aria-label="Sections">
+      <a href="index.html" aria-current="page">Overview</a>
+      <a href="population.html">Population</a>
+      <a href="economy.html">Economy</a>
+      <a href="health.html">Health &amp; Education</a>
+      <a href="regions.html">Regions</a>
+      <a href="data.html">Data &amp; Sources</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="kicker">National statistics · Japan · Updated for 2024</p>
+    <h1>Japan in numbers</h1>
+    <p class="lede">One atlas for the country: how many people live here and where, what the
+    economy produces, how long people live, and how the 47 prefectures compare.
+    Every figure on this site names its source and its year — see the
+    <a href="data.html">Data &amp; Sources</a> page for the full list.</p>
+  </section>
+
+  <section class="stats" aria-label="Key indicators">
+    <div class="stat accent">
+      <div class="value">124.0 <small>million</small></div>
+      <div class="label">Population</div>
+      <div class="source">World Bank WDI, 2024</div>
+    </div>
+    <div class="stat accent">
+      <div class="value">$4.19 <small>trillion</small></div>
+      <div class="label">GDP, nominal</div>
+      <div class="source">World Bank WDI, 2024 · 4th in the world</div>
+    </div>
+    <div class="stat accent">
+      <div class="value">$33,797</div>
+      <div class="label">GDP per capita</div>
+      <div class="source">World Bank WDI, 2024</div>
+    </div>
+    <div class="stat">
+      <div class="value">84.0 <small>years</small></div>
+      <div class="label">Life expectancy at birth</div>
+      <div class="source">World Bank WDI, 2024</div>
+    </div>
+    <div class="stat">
+      <div class="value">2.5<small>%</small></div>
+      <div class="label">Unemployment rate</div>
+      <div class="source">World Bank WDI, 2024</div>
+    </div>
+    <div class="stat">
+      <div class="value">1.2</div>
+      <div class="label">Fertility rate</div>
+      <div class="source">World Bank WDI, 2023 · births per woman</div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>A shrinking population</h2>
+    <p>Japan's population peaked at 128.1 million in 2010 and has fallen every year
+    since. In 2024 it stood at 124.0 million, down 0.4% on the year. Births fell to
+    727,277 in 2023 while deaths reached 1,590,503 — a natural decrease of more than
+    860,000 people in a single year.</p>
+    <div class="chart" id="pop-chart"></div>
+    <p class="fine">Total population, millions. Source: World Bank, World Development Indicators.</p>
+    <p><a href="population.html">Explore population in depth →</a></p>
+  </section>
+
+  <div class="two-col">
+    <section class="panel">
+      <h2>The economy</h2>
+      <p>Nominal GDP was $4.19 trillion in 2024, the world's fourth largest. In yen
+      terms the economy kept growing; in dollars it shrank, because the yen weakened.</p>
+      <div class="chart" id="gdp-chart"></div>
+      <p class="fine">Nominal GDP, billion US dollars. Source: World Bank WDI.</p>
+      <p><a href="economy.html">Explore the economy →</a></p>
+    </section>
+    <section class="panel">
+      <h2>An ageing country</h2>
+      <p>Almost three in ten people in Japan are aged 65 or older — the highest share
+      of any large country. Children under 15 are 11.4% of the population.</p>
+      <div class="chart" id="age-chart"></div>
+      <p class="fine" id="age-note"></p>
+      <p><a href="population.html">See how the age mix changed →</a></p>
+    </section>
+  </div>
+
+  <section class="panel">
+    <h2>Where people live</h2>
+    <p>Tokyo holds 14.18 million people — 11.5% of the country. Together with
+    Kanagawa, Saitama and Chiba, the Greater Tokyo area holds 29.9% of Japan.</p>
+    <div class="chart" id="top-prefectures"></div>
+    <p class="fine">Population, millions, 1 October 2024. Source: Statistics Bureau of Japan, Population Estimates.</p>
+    <p><a href="regions.html">All 47 prefectures, ranked and searchable →</a></p>
+  </section>
+
+  <section class="panel">
+    <h2>Japan in the world</h2>
+    <p>Japan is the world's <strong>4th-largest economy</strong> by nominal GDP and
+    its <strong>12th most populous country</strong>. Its life expectancy of 84.0
+    years ranks <strong>10th in the world</strong>, and 29.8% of its people are
+    aged 65 or older — the highest share of any large country. The pages of this
+    atlas put those headlines in context: the <a href="population.html">Population</a>
+    page follows the shrinking, ageing population; the
+    <a href="economy.html">Economy</a> page follows output, trade and work; and the
+    <a href="regions.html">Regions</a> page ranks all 47 prefectures.</p>
+    <p class="fine">World ranks: World Bank, World Development Indicators, 2024.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Find an indicator</h2>
+    <div class="controls">
+      <label for="indicator-search">Search indicators</label>
+      <input type="search" id="indicator-search" placeholder="Try “life expectancy” or “trade”…" aria-label="Search indicators">
+      <span class="fine" id="indicator-count">18 of 18 indicators</span>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Indicator</th><th class="num">Value</th><th class="num">Year</th><th>Source</th></tr></thead>
+        <tbody id="indicator-list">
+          <tr data-name="population"><td>Population</td><td class="num">124.0 million</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr data-name="population growth"><td>Population growth</td><td class="num">−0.4%</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr data-name="population density"><td>Population density</td><td class="num">342 per km²</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr data-name="urban population"><td>Urban population</td><td class="num">92.2%</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr data-name="gdp nominal"><td>GDP, nominal</td><td class="num">$4.19 trillion</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr data-name="gdp per capita"><td>GDP per capita</td><td class="num">$33,797</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr data-name="gdp growth real"><td>Real GDP growth</td><td class="num">+0.1%</td><td class="num">2024</td><td>IMF WEO</td></tr>
+          <tr data-name="inflation consumer prices"><td>Inflation (consumer prices)</td><td class="num">2.7%</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr data-name="unemployment"><td>Unemployment rate</td><td class="num">2.5%</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr data-name="labour force participation"><td>Labour force</td><td class="num">69.3 million</td><td class="num">2024</td><td>ILO / World Bank WDI</td></tr>
+          <tr data-name="life expectancy"><td>Life expectancy at birth</td><td class="num">84.0 years</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr data-name="infant mortality"><td>Infant mortality</td><td class="num">1.8 per 1,000</td><td class="num">2024</td><td>World Bank WDI</td></tr>
+          <tr data-name="fertility rate births"><td>Fertility rate</td><td class="num">1.2 births per woman</td><td class="num">2023</td><td>World Bank WDI</td></tr>
+          <tr data-name="trade exports imports deficit"><td>Goods exports / imports</td><td class="num">$718bn / $752bn</td><td class="num">2024</td><td>WITS / World Bank</td></tr>
+          <tr data-name="human development index hdi"><td>Human Development Index</td><td class="num">0.925</td><td class="num">2023</td><td>UNDP</td></tr>
+          <tr data-name="gini inequality"><td>Gini index</td><td class="num">32.3</td><td class="num">2020</td><td>World Bank WDI</td></tr>
+          <tr data-name="education schooling tertiary"><td>Tertiary enrolment, gross</td><td class="num">64.9%</td><td class="num">2023</td><td>World Bank WDI</td></tr>
+          <tr data-name="hospital beds physicians health"><td>Hospital beds</td><td class="num">12.6 per 1,000</td><td class="num">2022</td><td>OECD</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fine" id="indicator-empty" style="display:none">No indicator matches that search.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Latest releases</h2>
+    <ul class="tight">
+      <li><span class="pill">2024</span> Population Estimates, 1 October 2024 — Statistics Bureau of Japan: total population 123.80 million, down 550,000 on the year.</li>
+      <li><span class="pill">2024</span> World Development Indicators vintage — World Bank: GDP $4.19 trillion, life expectancy 84.0 years, unemployment 2.5%.</li>
+      <li><span class="pill">2023</span> Vital Statistics — Ministry of Health, Labour and Welfare: 727,277 births, the lowest on record.</li>
+      <li><span class="pill">2023</span> Human Development Report — UNDP: HDI 0.925, ranked 23rd in the world.</li>
+    </ul>
+    <p class="fine">“Latest” means the newest year each source has published for that figure, not the date this page was built.</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Nippon Data Atlas is an independent atlas, not affiliated with the Statistics
+    Bureau of Japan or any government body. Figures are republished from the sources
+    named beside them. <span id="site-year">2026</span> · <a href="data.html">Data &amp; Sources</a></p>
+  </div>
+</footer>
+</body>
+</html>

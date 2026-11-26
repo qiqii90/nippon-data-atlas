@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regions — Nippon Data Atlas</title>
+<meta name="description" content="Japan's eight regions and all 47 prefectures by population. Filter, search, sort and compare. Every figure sourced.">
+<link rel="stylesheet" href="style.css">
+<script src="data.js" defer></script>
+<script src="charts.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Nippon <em>Data Atlas</em></a>
+    <span class="tagline">Japan in numbers — every figure sourced</span>
+    <nav class="main-nav" aria-label="Sections">
+      <a href="index.html">Overview</a>
+      <a href="population.html">Population</a>
+      <a href="economy.html">Economy</a>
+      <a href="health.html">Health &amp; Education</a>
+      <a href="regions.html" aria-current="page">Regions</a>
+      <a href="data.html">Data &amp; Sources</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="kicker">Regions</p>
+    <h1>Eight regions, 47 prefectures</h1>
+    <p class="lede">Tap a region to filter the table, search for a prefecture by name, click a
+    column heading to sort, or tick up to three prefectures to compare them.
+    All figures are 1 October 2024, Statistics Bureau of Japan.</p>
+  </section>
+
+  <div class="controls">
+    <button type="button" data-region-filter="All" class="active" aria-pressed="true">All regions</button>
+  </div>
+  <section class="region-grid" aria-label="Regions">
+    <button type="button" class="region-card" data-region-filter="Hokkaido" data-region-card="Hokkaido" aria-pressed="false">
+      <span class="region-name">Hokkaido</span><br>
+      <span class="region-pop">5.04 million</span><br>
+      <span class="region-meta"><span class="region-share">4.1% of Japan</span> · <span class="region-count">1 prefecture</span></span>
+    </button>
+    <button type="button" class="region-card" data-region-filter="Tohoku" data-region-card="Tohoku" aria-pressed="false">
+      <span class="region-name">Tohoku</span><br>
+      <span class="region-pop">8.21 million</span><br>
+      <span class="region-meta"><span class="region-share">6.6% of Japan</span> · <span class="region-count">6 prefectures</span></span>
+    </button>
+    <button type="button" class="region-card" data-region-filter="Kanto" data-region-card="Kanto" aria-pressed="false">
+      <span class="region-name">Kanto</span><br>
+      <span class="region-pop">43.57 million</span><br>
+      <span class="region-meta"><span class="region-share">35.2% of Japan</span> · <span class="region-count">7 prefectures</span></span>
+    </button>
+    <button type="button" class="region-card" data-region-filter="Chubu" data-region-card="Chubu" aria-pressed="false">
+      <span class="region-name">Chubu</span><br>
+      <span class="region-pop">20.61 million</span><br>
+      <span class="region-meta"><span class="region-share">16.7% of Japan</span> · <span class="region-count">9 prefectures</span></span>
+    </button>
+    <button type="button" class="region-card" data-region-filter="Kansai" data-region-card="Kansai" aria-pressed="false">
+      <span class="region-name">Kansai</span><br>
+      <span class="region-pop">21.89 million</span><br>
+      <span class="region-meta"><span class="region-share">17.7% of Japan</span> · <span class="region-count">7 prefectures</span></span>
+    </button>
+    <button type="button" class="region-card" data-region-filter="Chugoku" data-region-card="Chugoku" aria-pressed="false">
+      <span class="region-name">Chugoku</span><br>
+      <span class="region-pop">7.00 million</span><br>
+      <span class="region-meta"><span class="region-share">5.7% of Japan</span> · <span class="region-count">5 prefectures</span></span>
+    </button>
+    <button type="button" class="region-card" data-region-filter="Shikoku" data-region-card="Shikoku" aria-pressed="false">
+      <span class="region-name">Shikoku</span><br>
+      <span class="region-pop">3.53 million</span><br>
+      <span class="region-meta"><span class="region-share">2.9% of Japan</span> · <span class="region-count">4 prefectures</span></span>
+    </button>
+    <button type="button" class="region-card" data-region-filter="Kyushu" data-region-card="Kyushu" aria-pressed="false">
+      <span class="region-name">Kyushu</span><br>
+      <span class="region-pop">13.95 million</span><br>
+      <span class="region-meta"><span class="region-share">11.3% of Japan</span> · <span class="region-count">8 prefectures</span></span>
+    </button>
+  </section>
+
+  <section class="panel">
+    <h2>Population by region</h2>
+    <p>Kanto — Tokyo and its neighbours — holds more than a third of Japan. The
+    chart highlights the region you pick above.</p>
+    <div class="chart" id="region-chart"></div>
+    <p class="fine">Millions, 1 October 2024. Regional totals are sums of the prefecture
+    estimates; shares may not add to 100% because of rounding. Source: Statistics
+    Bureau of Japan, Population Estimates.</p>
+  </section>
+
+  <section class="panel">
+    <h2>All 47 prefectures</h2>
+    <div class="controls">
+      <label for="prefecture-search">Search prefectures</label>
+      <input type="search" id="prefecture-search" placeholder="Try “shima” or “kawa”…" aria-label="Search prefectures">
+      <span class="fine" id="prefecture-count">47 of 47 prefectures</span>
+    </div>
+    <p class="fine">Click a column heading to sort. Tick “Compare” on up to three rows to chart them against each other.</p>
+    <div class="table-scroll">
+      <table id="prefecture-table">
+        <thead><tr><th>Compare</th><th>#</th><th data-sort="name" aria-sort="none">Prefecture</th><th data-sort="region" aria-sort="none">Region</th><th class="num" data-sort="pop" aria-sort="descending">Population</th><th class="num">Share</th></tr></thead>
+        <tbody>
+          <tr data-name="tokyo" data-region="Kanto" data-pop="14178"><td><input type="checkbox" data-compare="Tokyo" aria-label="Compare Tokyo"></td><td class="rank">1</td><td>Tokyo</td><td>Kanto</td><td class="num">14.18m</td><td class="num">11.5%</td></tr>
+          <tr data-name="kanagawa" data-region="Kanto" data-pop="9225"><td><input type="checkbox" data-compare="Kanagawa" aria-label="Compare Kanagawa"></td><td class="rank">2</td><td>Kanagawa</td><td>Kanto</td><td class="num">9.23m</td><td class="num">7.5%</td></tr>
+          <tr data-name="osaka" data-region="Kansai" data-pop="8757"><td><input type="checkbox" data-compare="Osaka" aria-label="Compare Osaka"></td><td class="rank">3</td><td>Osaka</td><td>Kansai</td><td class="num">8.76m</td><td class="num">7.1%</td></tr>
+          <tr data-name="aichi" data-region="Chubu" data-pop="7460"><td><input type="checkbox" data-compare="Aichi" aria-label="Compare Aichi"></td><td class="rank">4</td><td>Aichi</td><td>Chubu</td><td class="num">7.46m</td><td class="num">6.0%</td></tr>
+          <tr data-name="saitama" data-region="Kanto" data-pop="7332"><td><input type="checkbox" data-compare="Saitama" aria-label="Compare Saitama"></td><td class="rank">5</td><td>Saitama</td><td>Kanto</td><td class="num">7.33m</td><td class="num">5.9%</td></tr>
+          <tr data-name="chiba" data-region="Kanto" data-pop="6251"><td><input type="checkbox" data-compare="Chiba" aria-label="Compare Chiba"></td><td class="rank">6</td><td>Chiba</td><td>Kanto</td><td class="num">6.25m</td><td class="num">5.0%</td></tr>
+          <tr data-name="hyogo" data-region="Kansai" data-pop="5337"><td><input type="checkbox" data-compare="Hyogo" aria-label="Compare Hyogo"></td><td class="rank">7</td><td>Hyogo</td><td>Kansai</td><td class="num">5.34m</td><td class="num">4.3%</td></tr>
+          <tr data-name="fukuoka" data-region="Kyushu" data-pop="5092"><td><input type="checkbox" data-compare="Fukuoka" aria-label="Compare Fukuoka"></td><td class="rank">8</td><td>Fukuoka</td><td>Kyushu</td><td class="num">5.09m</td><td class="num">4.1%</td></tr>
+          <tr data-name="hokkaido" data-region="Hokkaido" data-pop="5043"><td><input type="checkbox" data-compare="Hokkaido" aria-label="Compare Hokkaido"></td><td class="rank">9</td><td>Hokkaido</td><td>Hokkaido</td><td class="num">5.04m</td><td class="num">4.1%</td></tr>
+          <tr data-name="shizuoka" data-region="Chubu" data-pop="3527"><td><input type="checkbox" data-compare="Shizuoka" aria-label="Compare Shizuoka"></td><td class="rank">10</td><td>Shizuoka</td><td>Chubu</td><td class="num">3.53m</td><td class="num">2.8%</td></tr>
+          <tr data-name="ibaraki" data-region="Kanto" data-pop="2806"><td><input type="checkbox" data-compare="Ibaraki" aria-label="Compare Ibaraki"></td><td class="rank">11</td><td>Ibaraki</td><td>Kanto</td><td class="num">2.81m</td><td class="num">2.3%</td></tr>
+          <tr data-name="hiroshima" data-region="Chugoku" data-pop="2714"><td><input type="checkbox" data-compare="Hiroshima" aria-label="Compare Hiroshima"></td><td class="rank">12</td><td>Hiroshima</td><td>Chugoku</td><td class="num">2.71m</td><td class="num">2.2%</td></tr>
+          <tr data-name="kyoto" data-region="Kansai" data-pop="2520"><td><input type="checkbox" data-compare="Kyoto" aria-label="Compare Kyoto"></td><td class="rank">13</td><td>Kyoto</td><td>Kansai</td><td class="num">2.52m</td><td class="num">2.0%</td></tr>
+          <tr data-name="miyagi" data-region="Tohoku" data-pop="2248"><td><input type="checkbox" data-compare="Miyagi" aria-label="Compare Miyagi"></td><td class="rank">14</td><td>Miyagi</td><td>Tohoku</td><td class="num">2.25m</td><td class="num">1.8%</td></tr>
+          <tr data-name="niigata" data-region="Chubu" data-pop="2099"><td><input type="checkbox" data-compare="Niigata" aria-label="Compare Niigata"></td><td class="rank">15</td><td>Niigata</td><td>Chubu</td><td class="num">2.10m</td><td class="num">1.7%</td></tr>
+          <tr data-name="nagano" data-region="Chubu" data-pop="1987"><td><input type="checkbox" data-compare="Nagano" aria-label="Compare Nagano"></td><td class="rank">16</td><td>Nagano</td><td>Chubu</td><td class="num">1.99m</td><td class="num">1.6%</td></tr>
+          <tr data-name="gifu" data-region="Chubu" data-pop="1916"><td><input type="checkbox" data-compare="Gifu" aria-label="Compare Gifu"></td><td class="rank">17</td><td>Gifu</td><td>Chubu</td><td class="num">1.92m</td><td class="num">1.5%</td></tr>
+          <tr data-name="gunma" data-region="Kanto" data-pop="1890"><td><input type="checkbox" data-compare="Gunma" aria-label="Compare Gunma"></td><td class="rank">18</td><td>Gunma</td><td>Kanto</td><td class="num">1.89m</td><td class="num">1.5%</td></tr>
+          <tr data-name="tochigi" data-region="Kanto" data-pop="1885"><td><input type="checkbox" data-compare="Tochigi" aria-label="Compare Tochigi"></td><td class="rank">19</td><td>Tochigi</td><td>Kanto</td><td class="num">1.89m</td><td class="num">1.5%</td></tr>
+          <tr data-name="okayama" data-region="Chugoku" data-pop="1831"><td><input type="checkbox" data-compare="Okayama" aria-label="Compare Okayama"></td><td class="rank">20</td><td>Okayama</td><td>Chugoku</td><td class="num">1.83m</td><td class="num">1.5%</td></tr>
+          <tr data-name="fukushima" data-region="Tohoku" data-pop="1743"><td><input type="checkbox" data-compare="Fukushima" aria-label="Compare Fukushima"></td><td class="rank">21</td><td>Fukushima</td><td>Tohoku</td><td class="num">1.74m</td><td class="num">1.4%</td></tr>
+          <tr data-name="mie" data-region="Kansai" data-pop="1711"><td><input type="checkbox" data-compare="Mie" aria-label="Compare Mie"></td><td class="rank">22</td><td>Mie</td><td>Kansai</td><td class="num">1.71m</td><td class="num">1.4%</td></tr>
+          <tr data-name="kumamoto" data-region="Kyushu" data-pop="1697"><td><input type="checkbox" data-compare="Kumamoto" aria-label="Compare Kumamoto"></td><td class="rank">23</td><td>Kumamoto</td><td>Kyushu</td><td class="num">1.70m</td><td class="num">1.4%</td></tr>
+          <tr data-name="kagoshima" data-region="Kyushu" data-pop="1532"><td><input type="checkbox" data-compare="Kagoshima" aria-label="Compare Kagoshima"></td><td class="rank">24</td><td>Kagoshima</td><td>Kyushu</td><td class="num">1.53m</td><td class="num">1.2%</td></tr>
+          <tr data-name="okinawa" data-region="Kyushu" data-pop="1466"><td><input type="checkbox" data-compare="Okinawa" aria-label="Compare Okinawa"></td><td class="rank">25</td><td>Okinawa</td><td>Kyushu</td><td class="num">1.47m</td><td class="num">1.2%</td></tr>
+          <tr data-name="shiga" data-region="Kansai" data-pop="1402"><td><input type="checkbox" data-compare="Shiga" aria-label="Compare Shiga"></td><td class="rank">26</td><td>Shiga</td><td>Kansai</td><td class="num">1.40m</td><td class="num">1.1%</td></tr>
+          <tr data-name="nara" data-region="Kansai" data-pop="1285"><td><input type="checkbox" data-compare="Nara" aria-label="Compare Nara"></td><td class="rank">27</td><td>Nara</td><td>Kansai</td><td class="num">1.29m</td><td class="num">1.0%</td></tr>
+          <tr data-name="yamaguchi" data-region="Chugoku" data-pop="1281"><td><input type="checkbox" data-compare="Yamaguchi" aria-label="Compare Yamaguchi"></td><td class="rank">28</td><td>Yamaguchi</td><td>Chugoku</td><td class="num">1.28m</td><td class="num">1.0%</td></tr>
+          <tr data-name="ehime" data-region="Shikoku" data-pop="1276"><td><input type="checkbox" data-compare="Ehime" aria-label="Compare Ehime"></td><td class="rank">29</td><td>Ehime</td><td>Shikoku</td><td class="num">1.28m</td><td class="num">1.0%</td></tr>
+          <tr data-name="nagasaki" data-region="Kyushu" data-pop="1252"><td><input type="checkbox" data-compare="Nagasaki" aria-label="Compare Nagasaki"></td><td class="rank">30</td><td>Nagasaki</td><td>Kyushu</td><td class="num">1.25m</td><td class="num">1.0%</td></tr>
+          <tr data-name="aomori" data-region="Tohoku" data-pop="1165"><td><input type="checkbox" data-compare="Aomori" aria-label="Compare Aomori"></td><td class="rank">31</td><td>Aomori</td><td>Tohoku</td><td class="num">1.17m</td><td class="num">0.9%</td></tr>
+          <tr data-name="iwate" data-region="Tohoku" data-pop="1145"><td><input type="checkbox" data-compare="Iwate" aria-label="Compare Iwate"></td><td class="rank">32</td><td>Iwate</td><td>Tohoku</td><td class="num">1.15m</td><td class="num">0.9%</td></tr>
+          <tr data-name="ishikawa" data-region="Chubu" data-pop="1098"><td><input type="checkbox" data-compare="Ishikawa" aria-label="Compare Ishikawa"></td><td class="rank">33</td><td>Ishikawa</td><td>Chubu</td><td class="num">1.10m</td><td class="num">0.9%</td></tr>
+          <tr data-name="oita" data-region="Kyushu" data-pop="1085"><td><input type="checkbox" data-compare="Oita" aria-label="Compare Oita"></td><td class="rank">34</td><td>Oita</td><td>Kyushu</td><td class="num">1.09m</td><td class="num">0.9%</td></tr>
+          <tr data-name="miyazaki" data-region="Kyushu" data-pop="1033"><td><input type="checkbox" data-compare="Miyazaki" aria-label="Compare Miyazaki"></td><td class="rank">35</td><td>Miyazaki</td><td>Kyushu</td><td class="num">1.03m</td><td class="num">0.8%</td></tr>
+          <tr data-name="yamagata" data-region="Tohoku" data-pop="1011"><td><input type="checkbox" data-compare="Yamagata" aria-label="Compare Yamagata"></td><td class="rank">36</td><td>Yamagata</td><td>Tohoku</td><td class="num">1.01m</td><td class="num">0.8%</td></tr>
+          <tr data-name="toyama" data-region="Chubu" data-pop="997"><td><input type="checkbox" data-compare="Toyama" aria-label="Compare Toyama"></td><td class="rank">37</td><td>Toyama</td><td>Chubu</td><td class="num">1.00m</td><td class="num">0.8%</td></tr>
+          <tr data-name="kagawa" data-region="Shikoku" data-pop="917"><td><input type="checkbox" data-compare="Kagawa" aria-label="Compare Kagawa"></td><td class="rank">38</td><td>Kagawa</td><td>Shikoku</td><td class="num">0.92m</td><td class="num">0.7%</td></tr>
+          <tr data-name="akita" data-region="Tohoku" data-pop="897"><td><input type="checkbox" data-compare="Akita" aria-label="Compare Akita"></td><td class="rank">39</td><td>Akita</td><td>Tohoku</td><td class="num">0.90m</td><td class="num">0.7%</td></tr>
+          <tr data-name="wakayama" data-region="Kansai" data-pop="880"><td><input type="checkbox" data-compare="Wakayama" aria-label="Compare Wakayama"></td><td class="rank">40</td><td>Wakayama</td><td>Kansai</td><td class="num">0.88m</td><td class="num">0.7%</td></tr>
+          <tr data-name="yamanashi" data-region="Chubu" data-pop="791"><td><input type="checkbox" data-compare="Yamanashi" aria-label="Compare Yamanashi"></td><td class="rank">41</td><td>Yamanashi</td><td>Chubu</td><td class="num">0.79m</td><td class="num">0.6%</td></tr>
+          <tr data-name="saga" data-region="Kyushu" data-pop="788"><td><input type="checkbox" data-compare="Saga" aria-label="Compare Saga"></td><td class="rank">42</td><td>Saga</td><td>Kyushu</td><td class="num">0.79m</td><td class="num">0.6%</td></tr>
+          <tr data-name="fukui" data-region="Chubu" data-pop="739"><td><input type="checkbox" data-compare="Fukui" aria-label="Compare Fukui"></td><td class="rank">43</td><td>Fukui</td><td>Chubu</td><td class="num">0.74m</td><td class="num">0.6%</td></tr>
+          <tr data-name="tokushima" data-region="Shikoku" data-pop="685"><td><input type="checkbox" data-compare="Tokushima" aria-label="Compare Tokushima"></td><td class="rank">44</td><td>Tokushima</td><td>Shikoku</td><td class="num">0.69m</td><td class="num">0.6%</td></tr>
+          <tr data-name="kochi" data-region="Shikoku" data-pop="656"><td><input type="checkbox" data-compare="Kochi" aria-label="Compare Kochi"></td><td class="rank">45</td><td>Kochi</td><td>Shikoku</td><td class="num">0.66m</td><td class="num">0.5%</td></tr>
+          <tr data-name="shimane" data-region="Chugoku" data-pop="642"><td><input type="checkbox" data-compare="Shimane" aria-label="Compare Shimane"></td><td class="rank">46</td><td>Shimane</td><td>Chugoku</td><td class="num">0.64m</td><td class="num">0.5%</td></tr>
+          <tr data-name="tottori" data-region="Chugoku" data-pop="531"><td><input type="checkbox" data-compare="Tottori" aria-label="Compare Tottori"></td><td class="rank">47</td><td>Tottori</td><td>Chugoku</td><td class="num">0.53m</td><td class="num">0.4%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fine" id="prefecture-empty" style="display:none">No prefecture matches that search.</p>
+    <p class="fine">Population, 1 October 2024. Source: Statistics Bureau of Japan, Population Estimates. Shares are of the national total of 123.80 million.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Compare prefectures</h2>
+    <p id="compare-note">Tick up to three prefectures to compare them.</p>
+    <div class="chart" id="compare-chart"></div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Nippon Data Atlas is an independent atlas, not affiliated with the Statistics
+    Bureau of Japan or any government body. <span id="site-year">2026</span> · <a href="data.html">Data &amp; Sources</a></p>
+  </div>
+</footer>
+</body>
+</html>

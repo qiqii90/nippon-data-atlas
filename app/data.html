@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data &amp; Sources — Nippon Data Atlas</title>
+<meta name="description" content="Every figure on Nippon Data Atlas with its source, year and definition — and a CSV download of the full dataset.">
+<link rel="stylesheet" href="style.css">
+<script src="data.js" defer></script>
+<script src="charts.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Nippon <em>Data Atlas</em></a>
+    <span class="tagline">Japan in numbers — every figure sourced</span>
+    <nav class="main-nav" aria-label="Sections">
+      <a href="index.html">Overview</a>
+      <a href="population.html">Population</a>
+      <a href="economy.html">Economy</a>
+      <a href="health.html">Health &amp; Education</a>
+      <a href="regions.html">Regions</a>
+      <a href="data.html" aria-current="page">Data &amp; Sources</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="kicker">Data &amp; Sources</p>
+    <h1>Where every number comes from</h1>
+    <p class="lede">A statistics site is only as good as its sources. Every figure on this
+    site is listed below with the value shown, the year it describes, and the
+    publication it comes from. Nothing here is estimated by us, except where the
+    table says “computed” — and then it says computed from what.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Download the figures</h2>
+    <p>All headline figures and all 47 prefecture populations as one CSV file,
+    generated in your browser from the same data this site draws from. No account,
+    no request leaves your computer.</p>
+    <div class="controls">
+      <button type="button" id="download-csv">Download all figures (CSV)</button>
+      <span class="fine" id="download-status"></span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Sources, figure by figure</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Figure</th><th class="num">Value</th><th class="num">Year</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>Total population</td><td class="num">123,975,371</td><td class="num">2024</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Population growth</td><td class="num">−0.4%</td><td class="num">2024</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Population density</td><td class="num">342 per km²</td><td class="num">2024</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Land area</td><td class="num">364,569 km²</td><td class="num">2023</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Urban population</td><td class="num">92.2%</td><td class="num">2024</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Fertility rate</td><td class="num">1.2 births per woman</td><td class="num">2023</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Births</td><td class="num">727,277</td><td class="num">2023</td><td>Ministry of Health, Labour and Welfare, Vital Statistics</td></tr>
+          <tr><td>Deaths</td><td class="num">1,590,503</td><td class="num">2023</td><td>Ministry of Health, Labour and Welfare, Vital Statistics</td></tr>
+          <tr><td>Natural change</td><td class="num">−863,226</td><td class="num">2023</td><td>Computed: births minus deaths, MHLW figures</td></tr>
+          <tr><td>Age 0–14 / 15–64 / 65+</td><td class="num">11.4% / 58.8% / 29.8%</td><td class="num">2024</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Prefecture populations (all 47)</td><td class="num">see Regions page</td><td class="num">2024</td><td>Statistics Bureau of Japan, Population Estimates (1 Oct 2024)</td></tr>
+          <tr><td>Nominal GDP</td><td class="num">$4.19 trillion</td><td class="num">2024</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>GDP per capita</td><td class="num">$33,797</td><td class="num">2024</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>GDP per capita, PPP</td><td class="num">$52,039</td><td class="num">2024</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Real GDP growth</td><td class="num">+0.1%</td><td class="num">2024</td><td>IMF, World Economic Outlook</td></tr>
+          <tr><td>Inflation (consumer prices)</td><td class="num">2.7%</td><td class="num">2024</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Unemployment rate</td><td class="num">2.5%</td><td class="num">2024</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Labour force</td><td class="num">69.3 million</td><td class="num">2024</td><td>ILO / World Bank, World Development Indicators</td></tr>
+          <tr><td>Labour participation, ages 15+</td><td class="num">63.2%</td><td class="num">2024</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Sector shares of value added</td><td class="num">Services 70.3%, industry 28.7%, agriculture 1.0%</td><td class="num">2024</td><td>UNSD, via Destatis country profile</td></tr>
+          <tr><td>Sector shares of employment</td><td class="num">Services 73.8%, industry 23.3%, agriculture 2.9%</td><td class="num">2024</td><td>ILOSTAT, via Destatis country profile</td></tr>
+          <tr><td>Goods exports / imports</td><td class="num">$718bn / $752bn</td><td class="num">2024</td><td>WITS / World Bank</td></tr>
+          <tr><td>Top export markets</td><td class="num">US 20.2%, China 17.6%, South Korea 6.5%</td><td class="num">2024</td><td>WITS / World Bank</td></tr>
+          <tr><td>Top import suppliers</td><td class="num">China 22.4%, US 10.1%, Australia 8.6%</td><td class="num">2024</td><td>WITS / World Bank</td></tr>
+          <tr><td>Life expectancy at birth</td><td class="num">84.0 years</td><td class="num">2024</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Life expectancy, women / men</td><td class="num">87.1 / 81.1 years</td><td class="num">2023</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Infant mortality</td><td class="num">1.8 per 1,000 live births</td><td class="num">2024</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Under-5 mortality</td><td class="num">2.4 per 1,000 live births</td><td class="num">2024</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Physicians</td><td class="num">2.65 per 1,000 people</td><td class="num">2022</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Hospital beds</td><td class="num">12.6 per 1,000 people</td><td class="num">2022</td><td>OECD Health Statistics</td></tr>
+          <tr><td>Doctor consultations</td><td class="num">12.1 per person</td><td class="num">2023</td><td>OECD, Health at a Glance 2025</td></tr>
+          <tr><td>Health spending</td><td class="num">10.7% of GDP</td><td class="num">2023</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Mean years of schooling</td><td class="num">12.7 years</td><td class="num">2023</td><td>UNDP, Human Development Report</td></tr>
+          <tr><td>Expected years of schooling</td><td class="num">15.5 years</td><td class="num">2023</td><td>UNDP, Human Development Report</td></tr>
+          <tr><td>Tertiary enrolment, gross</td><td class="num">64.9%</td><td class="num">2023</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Education spending</td><td class="num">3.3% of GDP</td><td class="num">2021</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Human Development Index</td><td class="num">0.925</td><td class="num">2023</td><td>UNDP, Human Development Report</td></tr>
+          <tr><td>Gini index</td><td class="num">32.3</td><td class="num">2020</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>Intentional homicides</td><td class="num">0.2 per 100,000</td><td class="num">2023</td><td>World Bank, World Development Indicators</td></tr>
+          <tr><td>R&amp;D spending</td><td class="num">3.4% of GDP</td><td class="num">2022</td><td>World Bank, World Development Indicators</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Method notes</h2>
+    <ul class="tight">
+      <li><strong>Years differ by figure on purpose.</strong> Each figure shows the newest year its source has published. A 2022 figure beside a 2024 figure is not stale data — it is the latest release.</li>
+      <li><strong>Nominal GDP in dollars moves with the exchange rate.</strong> Japan's GDP in yen rose in 2024; in dollars it fell, because the yen averaged about 151 to the dollar. Both series are shown on the Economy page.</li>
+      <li><strong>Prefecture populations are estimates</strong> for 1 October 2024 from the Statistics Bureau's Population Estimates, except in census years. Regional totals on the Regions page are sums of those prefecture estimates.</li>
+      <li><strong>Gross enrolment can pass 100%</strong> because it counts pupils outside the official age band for the level. It is not an error.</li>
+      <li><strong>Rounding.</strong> Shares are rounded to one decimal place, so listed shares can add to 99.9% or 100.1%. Population in millions is rounded to one decimal.</li>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <h2>How to cite this atlas</h2>
+    <p>“Nippon Data Atlas, Japan in numbers. Figures as published by the World Bank,
+    IMF, OECD, UNDP, ILO, the Statistics Bureau of Japan and the Ministry of Health,
+    Labour and Welfare; years as listed beside each figure.”</p>
+    <p class="fine">This atlas is independent and not affiliated with any of the sources above.</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Nippon Data Atlas is an independent atlas, not affiliated with the Statistics
+    Bureau of Japan or any government body. <span id="site-year">2026</span></p>
+  </div>
+</footer>
+</body>
+</html>
