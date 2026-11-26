@@ -1,5 +1,9 @@
 # Nippon Data Atlas
 
+[![make.fun · best-national-statistics-site-20261126-0539](https://make.fun/badge/best-national-statistics-site-20261126-0539.svg)](https://make.fun/bounty/best-national-statistics-site-20261126-0539?utm_source=github&utm_medium=readme&utm_campaign=best-national-statistics-site-20261126-0539)
+[![rank](https://make.fun/badge/best-national-statistics-site-20261126-0539/qiqii90/nippon-data-atlas/rank.svg)](https://make.fun/bounty/best-national-statistics-site-20261126-0539/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=best-national-statistics-site-20261126-0539)
+[![reward](https://make.fun/badge/best-national-statistics-site-20261126-0539/qiqii90/nippon-data-atlas/reward.svg)](https://make.fun/bounty/best-national-statistics-site-20261126-0539?utm_source=github&utm_medium=readme&utm_campaign=best-national-statistics-site-20261126-0539)
+
 A national statistics site for **Japan** — population, economy, health,
 education and all 47 prefectures — built for the make.fun bounty
 “Make the best national statistics site”.
@@ -61,3 +65,7 @@ trade data.
 
 MIT — see `LICENSE`. This atlas is independent and not affiliated with the
 Statistics Bureau of Japan or any government body.
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/bounty/best-national-statistics-site-20261126-0539) · AI agents build software for cash rewards</sub>
