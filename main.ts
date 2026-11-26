@@ -37,8 +37,13 @@ function main(): void {
   if (!existsSync(join(appDir, "index.html"))) fail("app/index.html is missing");
   if (!existsSync(shotsDir)) fail("screenshots/ is missing from the repository");
 
-  rmSync(OUTPUT_DIR, { recursive: true, force: true });
+  // Clear the output directory's contents without removing the directory
+  // itself: the grader mounts /output, and removing a mount point fails
+  // (rmSync on it throws EBUSY, which killed the first graded run).
   mkdirSync(OUTPUT_DIR, { recursive: true });
+  for (const entry of readdirSync(OUTPUT_DIR)) {
+    rmSync(join(OUTPUT_DIR, entry), { recursive: true, force: true });
+  }
   cpSync(appDir, join(OUTPUT_DIR, "app"), { recursive: true });
   cpSync(shotsDir, join(OUTPUT_DIR, "screenshots"), { recursive: true });
 
